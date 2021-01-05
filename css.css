@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+/* formato general */
+*{
+    font-family: 'Lato', sans-serif; 
+    color:white;
+    line-height: 1.5;
+    box-sizing:border-box;
+    
+}
+/* Box padre */
+.strips {
+min-height: 100vh;
+text-align: center;
+overflow: hidden;
+color: white;    
+}
+/*Box general*/
+.strip{
+    position: absolute;
+    width:20%;
+    min-height: 100vh;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+/*boxes individuales para poner los colores y las animations*/
+.strip.strip_blue{
+        background-color: #244F75;
+        left:0vw; 
+        animation: string_blue 1s forwards; /*animation name, animation duration */
+}
+.strip.strip_lightblue{
+    background-color: #60BFBF;
+    left: 20vw; 
+    animation: string_green 1.2s forwards; 
+}
+.strip.strip_purple{
+    background-color:#8C4B7E;
+    left: 40vw;
+    animation: string_purple 1.3s forwards;
+}
+.strip.strip_yellow{
+    background-color: #F8BB44;
+    left: 60vw; 
+    animation: string_yellow 1.4s forwards; 
+}
+.strip.strip_red{
+    background-color: #F24B4B; 
+    left: 80vw; 
+    animation: string_red 1.5s forwards;
+}
+/* title "it academy" - display flex para posicionarlo*/
+.strip_title{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/*pagina empieza en blaco*/
+.strip::before{   
+        content: "";
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: white;
+        opacity: 0.08;
+        -webkit-transform-origin: center center;
+                transform-origin: center center;
+        -webkit-transform: skew(30deg) scaleY(1) translate(0, 0);
+                transform: skew(30deg) scaleY(1) translate(0, 0);
+        transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);     
+}
+
+ /*movimiento en hover*/ 
+ .strip:hover::before {
+    -webkit-transform: skew(20deg) scale(2) translate(0, 0); 
+    transform: skew(20deg) scale(2) translate(0, 0);
+    opacity: 0.3;
+}
+
+/*configuro la animacion*/
+@keyframes string_blue {
+    0% {
+        -webkit-transform: translate3d(-100%, 0, 0); /*  donde aparace la animación*/
+        transform: translate3d(-100%, 0, 0);
+        animation-delay: 0.1s; /* orden de aparición*/
+        -webkit-animation-delay: 0.1s;
+    }
+    100% {
+        -webkit-transform: translate3d(0, 0, 0);/*donde termina la animacion*/
+        transform: translate3d(0, 0, 0);
+    }
+}  
+@keyframes string_green {
+    0% {
+        -webkit-transform: translate3d(0, 100%, 0);
+        transform: translate3d(0, 100%, 0);
+        -webkit-animation-delay: 0.2s;/* orden de aparición*/
+        animation-delay: 0.2s;
+    }
+    100% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    }
+} 
+@keyframes string_purple {
+    0% {
+        -webkit-transform: translate3d(0, -100%, 0);
+        transform: translate3d(0, -100%, 0);
+        -webkit-animation-delay: 0.3s; /* orden de aparición*/
+        animation-delay: 0.3s;
+    }
+    100% {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+}   
+@keyframes string_yellow {
+    0% {
+        -webkit-transform: translate3d(0, 100%, 0);
+        transform: translate3d(0, 100%, 0);
+        animation-delay: 0.4s; /* orden de aparición*/
+        -webkit-animation-delay: 0.4s;
+    }
+    100% {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+}  
+@keyframes string_red {
+    0% {
+        -webkit-transform: translate3d(100%, 0, 0);
+        transform: translate3d(100%, 0, 0);
+        animation-delay: 0.5s; /* orden de aparición*/
+        -webkit-animation-delay: 0.5s;
+    }
+    100% {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+}  
+
